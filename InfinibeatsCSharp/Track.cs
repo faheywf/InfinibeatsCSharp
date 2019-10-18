@@ -45,7 +45,7 @@ namespace InfinibeatsCSharp
             {
                 SignalGenerator gen = new SignalGenerator()
                 {
-                    Gain = note != "REST" ? 0.1 : 0.0,
+                    Gain = note != "REST" ? 0.025 : 0.0,
                     Frequency = frequencies[note] * octiveMultiplier,
                     Type = SignalGeneratorType.Sin
                 };

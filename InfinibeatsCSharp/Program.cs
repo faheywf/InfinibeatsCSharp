@@ -13,39 +13,6 @@ namespace InfinibeatsCSharp
     {
         static void Main(string[] args)
         {
-            Dictionary<string, double> noteFrequencies = new Dictionary<string, double>()
-            {
-                { "A", 220.0 },
-                { "B", 246.94 },
-                { "C", 261.63 },
-                { "C#", 277.18 },
-                { "D", 293.66 },
-                { "D#", 311.13 },
-                { "E", 329.63 },
-                { "F", 174.61 },
-                { "F#", 369.99 },
-                { "G", 392.00 },
-                { "G#", 207.65 },
-                { "REST", 0.00 }
-            };
-            Dictionary<string, SignalGenerator> generators = new Dictionary<string, SignalGenerator>();
-            foreach (string note in noteFrequencies.Keys)
-            {
-                SignalGenerator gen = new SignalGenerator()
-                {
-                    Gain = note != "REST" ? 0.2 : 0.0,
-                    Frequency = noteFrequencies[note] * 0.5,
-                    Type = SignalGeneratorType.Sin
-                };
-                generators[note] = gen;
-            }
-            Dictionary<string, WaveOutEvent> wouts = new Dictionary<string, WaveOutEvent>();
-            foreach (string note in generators.Keys)
-            {
-                WaveOutEvent wo = new WaveOutEvent();
-                wo.Init(generators[note]);
-                wouts[note] = wo;
-            }
 
             string[] C = { "C", "E", "G" };
             string[] am = { "A", "C", "E" };
